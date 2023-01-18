@@ -1,0 +1,62 @@
+function CreateVeh(modelHash, ...)
+    RequestModel(modelHash)
+    while not HasModelLoaded(modelHash) do Wait(0) end
+    local veh = CreateVehicle(modelHash, ...)
+    SetModelAsNoLongerNeeded(modelHash)
+    return veh
+end
+
+function CreateNPC(modelHash, ...)
+    RequestModel(modelHash)
+    while not HasModelLoaded(modelHash) do Wait(0) end
+    local ped = CreatePed(26, modelHash, ...)
+    SetModelAsNoLongerNeeded(modelHash)
+    return ped
+end
+
+function CreateProp(modelHash, ...)
+    RequestModel(modelHash)
+    while not HasModelLoaded(modelHash) do Wait(0) end
+    local obj = CreateObject(modelHash, ...)
+    SetModelAsNoLongerNeeded(modelHash)
+    return obj
+end
+
+function PlayAnim(ped, dict, ...)
+    RequestAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do Wait(0) end
+    TaskPlayAnim(ped, dict, ...)
+end
+
+function PlayEffect(dict, particleName, entity, off, rot, time, cb)
+    CreateThread(function()
+        RequestNamedPtfxAsset(dict)
+        while not HasNamedPtfxAssetLoaded(dict) do
+            Wait(0)
+        end
+        UseParticleFxAssetNextCall(dict)
+        Wait(10)
+        local particleHandle = StartParticleFxLoopedOnEntity(particleName, entity, off.x, off.y, off.z, rot.x, rot.y, rot.z, 1.0)
+        SetParticleFxLoopedColour(particleHandle, 0, 255, 0 , 0)
+        Wait(time)
+        StopParticleFxLooped(particleHandle, false)
+        cb()
+    end)
+end
+
+function CreateBlip(data)
+    local x,y,z = table.unpack(data.Location)
+    local blip = AddBlipForCoord(x, y, z)
+    SetBlipSprite(blip, data.ID)
+    SetBlipDisplay(blip, data.Display)
+    SetBlipScale(blip, data.Scale)
+    SetBlipColour(blip, data.Color)
+    if (data.Rotation) then 
+        SetBlipRotation(blip, math.ceil(data.Rotation))
+    end
+    SetBlipAsShortRange(blip, true)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString(data.Label)
+    EndTextCommandSetBlipName(blip)
+    return blip
+end

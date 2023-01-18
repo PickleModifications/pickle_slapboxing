@@ -1,0 +1,1 @@
+["slaptable"] 							= {["name"] = "slaptable",  	     		    ["label"] = "Slap Table",	 		    ["weight"] = 1, 		["type"] = "item", 		["image"] = "slaptable.png", 				["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},

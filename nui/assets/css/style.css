@@ -1,0 +1,109 @@
+@font-face {
+    font-family: Arimo;
+    src: url("../fonts/Arimo-Regular.ttf");
+}
+
+body {
+    font-family: Arimo;
+    background-color: transparent;
+    color: white;
+}
+
+#app-main {
+    display: none;
+    flex-direction: column;
+    width: 39.5vw;
+    height: 6.5vw;
+    padding: 0.5vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 4vw;
+    border-radius: 0.5vw;
+}
+
+.am-top {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 2vw;
+    font-size: 1vw;
+}
+
+.am-top > img { 
+    height: inherit;
+    width: fit-content;
+}
+
+.am-top > span { 
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-left: 0.5vw;
+}
+
+.am-middle {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.am-home, .am-away {
+    width: 100%;
+}
+
+.am-home > div:first-child, .am-away > div:first-child {
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-bottom: 0.5vw;
+}
+
+.bar {
+    width: 100%;
+    height: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.am-home > .bar {
+    background-color: red;
+}
+
+.am-home > div, .am-away > div {
+    display: flex;
+}
+
+.am-home > div:first-child > span:first-child, .am-away > div:first-child > span:first-child {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.am-home > div:first-child > span:last-child, .am-away > div:first-child > span:last-child {
+    display: flex;
+    margin-left: auto;
+}
+
+.team-health {
+    font-size: 1vw;
+    align-items: center;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+}
+
+.am-away > .bar {
+    background-color: rgb(0, 119, 255);
+}
+
+.am-bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.am-bottom > span {
+    text-align: center;
+}
