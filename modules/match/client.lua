@@ -55,7 +55,7 @@ end
 
 function DisableControls()
     for i=1, 298 do 
-        if i ~= 51 and i~= 177 then
+        if not Config.AllowedControls[i] then
            DisableControlAction(0, i, true)
         end
     end
