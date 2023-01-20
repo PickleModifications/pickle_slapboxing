@@ -15,6 +15,12 @@ Config.Slapping = {
     SkillSpeed = 3, -- Hardest Slap Speed
 }
 
+Config.AllowedControls = {
+    [51] = true, -- Slap
+    [177] = true, -- Leave
+    [249] = true, -- Push To Talk
+}
+
 Config.Items = {
     ["slaptable"] = {
         table = "default", -- Which table to use in Config.SlapTables
