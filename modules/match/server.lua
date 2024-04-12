@@ -6,7 +6,7 @@ function GetPlayerMatch(source)
             team = "home"
             index = k
             break
-        elseif sides["away"] and sides["away"].source then 
+        elseif sides["away"] and sides["away"].source == source then 
             team = "away"
             index = k
         end
